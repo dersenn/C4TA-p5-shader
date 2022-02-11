@@ -5,6 +5,7 @@ precision mediump float;
 
 attribute vec3 aPosition;
 // Always include this to get the position of the pixel and map the shader correctly onto the shape
+// but WHAT is aPosition???? how do I pass it?
 
 
 void main() {
