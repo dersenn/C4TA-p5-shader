@@ -22,6 +22,10 @@ void main() {
 
   // float myX = float smoothstep(float 0.0, float u_resolution.x, float u_mouse.x);
 
+  // if (u_mouse.x == 0) {
+  //   myX = 0;
+  //   myY = 0;
+  // };
 
   gl_FragColor = vec4(myX , myY, 0.0 ,1.0);
 
