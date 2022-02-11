@@ -16,8 +16,11 @@ void main() {
 
   // this can only exist once!
   // it colors the pixel.
+
   float myX = st.x * (u_mouse.x / u_resolution.x);
   float myY = st.y * (u_mouse.y / u_resolution.y);
+
+  // float myX = float smoothstep(float 0.0, float u_resolution.x, float u_mouse.x);
 
 
   gl_FragColor = vec4(myX , myY, 0.0 ,1.0);
