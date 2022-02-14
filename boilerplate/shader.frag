@@ -14,8 +14,6 @@ void main() {
   // position of the pixel. pixel divided by resolution.
   vec2 st = gl_FragCoord.xy / u_resolution.xy; 
 
-  // this can only exist once!
-  // it colors the pixel.
 
   float myX = st.x * (u_mouse.x / u_resolution.x);
   float myY = st.y * (u_mouse.y / u_resolution.y);
@@ -27,6 +25,8 @@ void main() {
   //   myY = 0;
   // };
 
+  // this can only exist once!
+  // it colors the pixel.
   gl_FragColor = vec4(myX , myY, 0.0 ,1.0);
 
 }
