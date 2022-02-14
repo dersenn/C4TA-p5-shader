@@ -29,15 +29,11 @@ function setup() {
 function draw() {
   background(255)
 
-  // send per frame info of sketch to shader.frag
-  theShader.setUniform("u_resolution", [width, height]);
-  theShader.setUniform("u_time", millis() / 1000.0); // we divide millis by 1000 to convert it to seconds
-  theShader.setUniform("u_mouse", [mouseX, map(mouseY, 0, height, height, 0)]); // we flip Y so it's oriented properly in our shader
 
   // this be like fill
   shader(theShader)
 
-  // the shape to draw shader onto.
+  // the shape to draw onto.
   // but it doesn't really affect the shader.
   // guess i must define this otherwise...
   rect(0, 0, width, height)
