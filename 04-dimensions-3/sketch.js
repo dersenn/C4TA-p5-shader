@@ -12,8 +12,10 @@ let theTexture
 let zero
 
 let shapes = []
-let nCols = 5
+let nCols = 2
 let nRows = 1
+
+let index = 0
 
 function preload() {
   theShader = loadShader('shader.vert', 'shader.frag')
@@ -38,11 +40,13 @@ function setup() {
         x: zero.x + x*(width/nCols),
         y: zero.y + y*(height/nRows),
         w: width/nCols,
-        h: height/nRows
+        h: (height/nRows),
+        i: index
       })
     }
+    index++
   }
-  // console.log(shapes)
+  console.log(shapes)
 
   // disable scaling for retina etc.
   pixelDensity(1)
@@ -76,6 +80,7 @@ function draw() {
 
     theShader.setUniform("u_position", [s.x, s.y]);
     theShader.setUniform("u_dimension", [s.w, s.h]);
+    theShader.setUniform("u_index", s.i);
 
     rect(s.x, s.y, s.w, s.h)
   }
