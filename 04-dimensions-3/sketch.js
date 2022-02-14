@@ -13,7 +13,7 @@ let zero
 
 let shapes = []
 let nCols = 2
-let nRows = 1
+let nRows = 2
 
 let index = 0
 
@@ -43,8 +43,8 @@ function setup() {
         h: (height/nRows),
         i: index
       })
+      index++
     }
-    index++
   }
   console.log(shapes)
 
@@ -80,7 +80,7 @@ function draw() {
 
     theShader.setUniform("u_position", [s.x, s.y]);
     theShader.setUniform("u_dimension", [s.w, s.h]);
-    theShader.setUniform("u_index", s.i);
+    theShader.setUniform("u_index", i);
 
     rect(s.x, s.y, s.w, s.h)
   }

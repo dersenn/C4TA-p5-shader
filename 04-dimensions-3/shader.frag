@@ -26,11 +26,10 @@ void main() {
   // vec2 pos = u_mouse.xy / u_resolution.xy;
   vec2 dim = u_dimension.xy / u_resolution.xy;
   vec2 mse = u_mouse.xy / u_resolution.xy;
-  float i = u_index / 10.0;
+  float i = u_index;
 
   float r = mse.y;
-  // float g = smoothstep(pos.x, pos.x + mse.x, st.x);
-  float g = smoothstep(i / dim.x, pos.x + mse.x, st.x);
+  float g = smoothstep(i * pos.x, pos.x * i + mse.x, st.x);
 
 
   vec3 color = vec3(r, g, 0.0);
