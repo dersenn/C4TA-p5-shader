@@ -42,7 +42,7 @@ function setup() {
       })
     }
   }
-  console.log(shapes)
+  // console.log(shapes)
 
   // disable scaling for retina etc.
   pixelDensity(1)

@@ -13,6 +13,7 @@ uniform vec2 u_mouse;
 
 uniform vec2 u_position;
 uniform vec2 u_dimension;
+uniform float u_index;
 
 
 // do shit with the pixel
