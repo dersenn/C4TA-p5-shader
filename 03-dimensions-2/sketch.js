@@ -71,7 +71,6 @@ function draw() {
   // this be like fill
   texture(theTexture)
 
-  // push()
   for (let i = 0; i < shapes.length; i++) {
     let s = shapes[i]
 
@@ -80,7 +79,6 @@ function draw() {
 
     rect(s.x, s.y, s.w, s.h)
   }
-  // pop()
 
 }
 
