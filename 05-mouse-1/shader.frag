@@ -32,16 +32,17 @@ void main() {
   vec2 m = (u_mouse.xy / u_resolution.xy);
 
   // float t = u_time * 4.0;
-  float t = tan(u_time); //* 4.0;
+  float t = tan(u_time) / u_time; //* 4.0;
 
 
   float dm = distance(m, st);
   float rnd = random(st * t);
 
   float g;
-  float rad = .01 + (((sin(t) + 1.0) * rnd) / 2.0);
+  float rad = sin(t) / 2.0;
+  float step = rad + (((sin(t) + 1.0) * rnd) / 2.0);
 
-  g = smoothstep(0.0, rad, dm);
+  g = smoothstep(0.0, step, dm);
 
   vec3 color = vec3(0.0, g, 0.0);
 
