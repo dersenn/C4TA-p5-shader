@@ -11,11 +11,18 @@ uniform vec2 u_resolution;
 uniform float u_time;
 uniform vec2 u_mouse;
 
-// float rand(float i, float o) = {
-//   float o;
-//   o = fract(sin(x)* o);
-//   return o;
-// }
+// random function ex book of shaders. pseudo random.s
+float random(vec2 st) {
+  return fract(
+    sin(
+      dot(
+        st.xy,
+        vec2(12.9898,78.233)
+      )
+    )
+    * 43758.5453123
+  );
+}
 
 
 // do shit with the pixel
@@ -24,18 +31,15 @@ void main() {
   vec2 st = (gl_FragCoord.xy / u_resolution.xy);
   vec2 m = (u_mouse.xy / u_resolution.xy);
 
+  float t = u_time * 2.0;
+
   float dm = distance(m, st);
+  float rnd = random(st * t);
 
   float g;
-  float rad = .02;
-  vec2 part = vec2(0.0, 0.1);
+  float rad = .01 + (((sin(t) + 1.0) * rnd) / 2.0);
 
-  if (dm < rad) {
-    g = 0.0;
-  } else {
-    // g = smoothstep(0.0, .1, d);
-    g = step(0.0, dm);
-  }
+  g = smoothstep(0.0, rad, dm);
 
   vec3 color = vec3(0.0, g, 0.0);
 
