@@ -31,7 +31,9 @@ void main() {
   vec2 st = (gl_FragCoord.xy / u_resolution.xy);
   vec2 m = (u_mouse.xy / u_resolution.xy);
 
-  float t = u_time * 2.0;
+  // float t = u_time * 4.0;
+  float t = tan(u_time); //* 4.0;
+
 
   float dm = distance(m, st);
   float rnd = random(st * t);

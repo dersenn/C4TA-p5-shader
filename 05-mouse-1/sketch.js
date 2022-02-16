@@ -36,6 +36,7 @@ function setup() {
   theTexture.noStroke()
 
   noStroke()
+  noCursor()
 }
 
 
