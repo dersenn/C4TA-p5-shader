@@ -29,7 +29,10 @@ float random(vec2 st) {
 void main() {
   // position of the pixel. pixel divided by resolution to get normalized value.
   vec2 st = (gl_FragCoord.xy / u_resolution.xy);
-  vec2 m = (u_mouse.xy / u_resolution.xy);
+
+  vec2 m = vec2(0.5, 0.5);
+
+  m = (u_mouse.xy / u_resolution.xy);
 
   float dm = distance(m, st);
 
