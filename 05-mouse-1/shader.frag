@@ -31,20 +31,24 @@ void main() {
   vec2 st = (gl_FragCoord.xy / u_resolution.xy);
   vec2 m = (u_mouse.xy / u_resolution.xy);
 
-  // float t = u_time * 4.0;
-  float t = tan(u_time) / u_time; //* 4.0;
-
-
   float dm = distance(m, st);
+
+  // float t = u_time * 4.0;
+  float t = tan(u_time) / 1000.0; //u_time; //* 4.0;
+
   float rnd = random(st * t);
 
-  float g;
-  float rad = sin(t) / 2.0;
-  float step = rad + (((sin(t) + 1.0) * rnd) / 2.0);
+  float r, g, b;
+  float wtf = atan(u_time); //1.2
 
+  float rad = sin(t) / 1.5;
+  float step = rad + (((sin(t) + 1.0) * rnd) / wtf);
+
+  r = sin(u_time);
   g = smoothstep(0.0, step, dm);
+  b = cos(u_time); // * rnd;
 
-  vec3 color = vec3(0.0, g, 0.0);
+  vec3 color = vec3(r, g, b);
 
   // this can only exist once! it colors the pixel.
   gl_FragColor = vec4(color, 1.0);
