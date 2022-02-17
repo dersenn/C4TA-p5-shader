@@ -41,7 +41,7 @@ void main() {
   float r, g, b;
   float wtf = atan(u_time); //1.2
 
-  float rad = sin(t) / 1.5;
+  float rad = sin(t) * u_time / 10.0;
   float step = rad + (((sin(t) + 1.0) * rnd) / wtf);
 
   r = sin(u_time);
