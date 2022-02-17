@@ -3,15 +3,13 @@
 precision mediump float;
 #endif
 
-// the same as in the vertex shader. needs to be declared here too.
-varying vec2 vTexCoord;
 
 // Per frame info from sketch.js
 uniform vec2 u_resolution;
 uniform float u_time;
 uniform vec2 u_mouse;
 
-// random function ex book of shaders. pseudo random.s
+// random function ex book of shaders. pseudo random.
 float random(vec2 st) {
   return fract(
     sin(
@@ -30,21 +28,19 @@ void main() {
   // position of the pixel. pixel divided by resolution to get normalized value.
   vec2 st = (gl_FragCoord.xy / u_resolution.xy);
 
-  vec2 m = vec2(0.5, 0.5);
-
-  m = (u_mouse.xy / u_resolution.xy);
+  vec2 m = (u_mouse.xy / u_resolution.xy);
 
   float dm = distance(m, st);
 
   // float t = u_time * 4.0;
-  float t = tan(u_time) / 1000.0; //u_time; //* 4.0;
+  float t = u_time; //tan(u_time); /// 1000.0; //* 4.0;
 
   float rnd = random(st * t);
 
   float r, g, b;
   float wtf = atan(u_time); //1.2
 
-  float rad = sin(t) * u_time / 10.0;
+  float rad = sin(t) * u_time / 1000.0;
   float step = rad + (((sin(t) + 1.0) * rnd) / wtf);
 
   r = sin(u_time);
