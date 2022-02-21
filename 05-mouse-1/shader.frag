@@ -3,6 +3,8 @@
 precision mediump float;
 #endif
 
+// the same as in the vertex shader. needs to be declared here too.
+varying vec2 vTexCoord;
 
 // Per frame info from sketch.js
 uniform vec2 u_resolution;
@@ -33,7 +35,8 @@ void main() {
   float dm = distance(m, st);
 
   // float t = u_time * 4.0;
-  float t = u_time; //tan(u_time); /// 1000.0; //* 4.0;
+  float t = tan(u_time) / 1000.0;
+  // float t = u_time; //tan(u_time); /// 1000.0; //* 4.0;
 
   float rnd = random(st * t);
 
